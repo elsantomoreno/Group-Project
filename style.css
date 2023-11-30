@@ -1,0 +1,297 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+}
+
+/* BODY */
+body {
+    background-color: red;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: red;
+
+}
+
+
+/* HEADER */
+header {
+    font-family: 'Inter', sans-serif;
+    grid-column: 1/span 12;
+    grid-row: 1/ span 1;
+    font-size: 3rem;
+    font-weight: 700;
+    color: white;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    background-color: red;
+
+}
+
+nav {
+    grid-column: 2/span 10;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(255, 0, 0);
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    padding: 0.5rem 1rem;
+}
+
+nav ul a:hover {
+    background-color: white;
+    color: red;
+    border-radius: 0.5rem;
+}
+
+.navbar-rechts>ul {
+    padding-left: 0;
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    margin: 0;
+}
+
+.navbar-links {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+
+.navbar-links>ul {
+    padding-left: 0;
+
+    list-style: none;
+    margin: 0;
+}
+
+/*Navbar mobile Hamburger menue*/
+.hamburger-menue {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+
+    display: none;
+
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.8rem;
+    width: 5rem;
+    height: 3rem;
+    margin: 0;
+    padding: 0;
+
+}
+
+.hamburger-menue .bar {
+    margin: 0;
+    padding: 0;
+    height: 1rem;
+    width: 100%;
+    background-color: white;
+    border-radius: 1rem;
+}
+
+
+
+/* MAIN*/
+
+
+main {
+    grid-column: 2/span 10;
+    grid-row: 2/span 10;
+    color: white;
+    background-color: red;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 2rem;
+}
+
+.hero_header {
+    font-size: 5vw;
+    font-weight: 900;
+    margin: 0;
+}
+
+.subtitle {
+    font-size: 4vw;
+    font-weight: 700;
+
+}
+
+main p {
+    font-size: 2rem;
+    width: 60%;
+}
+
+.flip-wrapper{
+    display: flex;
+    justify-content: center;
+}
+
+.flipcards{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 2rem;
+    align-items: center;
+    margin-bottom: 5rem;
+
+}
+
+
+.spezialität{
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+/* AISDE */
+/* aside {
+    grid-column: 9/span 4;
+    grid-row: 2/span 10;
+    min-height: 50rem;
+    background-color: red;
+    color: white;
+    margin-top: 5vw;
+} */
+
+
+/* FOOTER */
+footer {
+    grid-column: 1/ span 12;
+    grid-row: 12/ span 1;
+    min-height: 5rem;
+    background-color: yellow;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    background-color: red;
+
+
+}
+
+.footer {
+    grid-column: 2/span 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid white;
+
+}
+
+.adress {
+    color: white;
+}
+
+.copyright {
+    color: white;
+}
+
+.socials {
+    display: flex;
+    gap: 1rem;
+}
+
+
+/*mobile media query*/
+
+@media (max-width:800px) {
+    .hamburger-menue {
+        display: flex;
+        margin-right: 0;
+    }
+
+    .navbar-links {
+        margin-left: -7rem;
+    }
+
+    .navbar-rechts {
+        display: none;
+        width: 100%;
+    }
+
+    nav {
+
+        flex-direction: column;
+        align-items: flex-start;
+        grid-column: 1/ span 12;
+        margin-left: 8rem;
+        width: 100vw;
+
+    }
+
+    .navbar-rechts ul {
+        width: 60%;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        background-color: rgb(198, 23, 23);
+    }
+
+    .navbar-rechts li {
+        text-align: center;
+    }
+
+    /* .navbar-links ul {
+        display: none;
+    } */
+
+    svg {
+        width: 6rem;
+    }
+
+    .navbar-rechts li a {
+        width: 100%;
+    }
+
+    .navbar-rechts.active {
+        display: flex;
+    }
+
+
+    main {
+        grid-column: 1/span 12;
+        grid-row: 2/span 5;
+        margin-top: 0;
+    }
+
+   /*  aside {
+        grid-column: 1/span 12;
+        grid-row: 7/span 5;
+    } */
+
+    .container {
+        width: 100%;
+    }
+
+    .flipcards{
+        display: flex;
+        flex-direction: column;
+    }
+}
