@@ -78,7 +78,7 @@
 
           <tr>
             <td style="background-color: red;color:white">Rösti Häppchen</td>
-            <td style="background-color: red;color:white">15</td>
+            <td id="Rösti Häppchen" style="background-color: red;color:white">15</td>
             <td style="background-color: red;color:white">
               <button
               
@@ -93,7 +93,7 @@
           </tr>
           <tr>
             <td style="background-color: red;color:white">Käse Fondue</td>
-            <td style="background-color: red;color:white">25</td>
+            <td id="Käse Fondue" style="background-color: red;color:white">25</td>
             <td style="background-color: red;color:white">
               <button
            
@@ -108,7 +108,7 @@
           </tr>
           <tr>
             <td style="background-color: red;color:white">Zürcher Geschnetzeltes</td>
-            <td style="background-color: red;color:white">28</td>
+            <td id="Zürcher Geschnetzeltes" style="background-color: red;color:white">28</td>
             <td style="background-color: red;color:white">
               <button
           
@@ -123,7 +123,7 @@
           </tr>
           <tr>
             <td style="background-color: red;color:white">Schweizer Zwiebelsuppe</td>
-            <td style="background-color: red;color:white">13</td>
+            <td id="Schweizer Zwiebelsuppe" style="background-color: red;color:white">13</td>
             <td style="background-color: red;color:white">
               <button
              
@@ -142,7 +142,7 @@
           </tr>
           <tr>
             <td style="background-color: red;color:white">Fondue Bourguignonne</td>
-            <td style="background-color: red;color:white">36</td>
+            <td id="Fondue Bourguignonne" style="background-color: red;color:white">36</td>
             <td style="background-color: red;color:white">
               <button
              
@@ -157,7 +157,7 @@
           </tr>
           <tr>
             <td style="background-color: red;color:white">Äppler Magronen</td>
-            <td style="background-color: red;color:white">29</td>
+            <td id="Äppler Magronen" style="background-color: red;color:white">29</td>
             <td style="background-color: red;color:white">
               <button id="btn" type="button" class="btn-outline-light" value="Äppler Magronen">
                 ADD
@@ -168,7 +168,7 @@
             <td style="background-color: red;color:white">
               Swiss Cheese and Mushrom Quiche </td>
        
-            <td style="background-color: red;color:white">36</td>
+            <td id="Swiss Cheese and Mushrom Quiche" style="background-color: red;color:white">36</td>
             <td style="background-color: red;color:white">
               <button id="btn" type="button" class="btn-outline-light" value="Swiss Cheese and Mushrom Quiche">
                 ADD
@@ -177,7 +177,7 @@
           </tr>
           <tr>
             <td style="background-color: red;color:white">Zürcher Eintopf</td>
-            <td style="background-color: red;color:white">46</td>
+            <td id="Zürcher Eintopf" style="background-color: red;color:white">46</td>
             <td style="background-color: red;color:white">
               <button  id="btn" type="button" class="btn-outline-light" value="Zürcher Eintopf">
                 ADD
@@ -189,7 +189,7 @@
           </tr>
           <tr>
             <td style="background-color: red;color:white">Chocolate Fondue</td>
-            <td style="background-color: red;color:white">15</td>
+            <td id="Chocolate Fondue" style="background-color: red;color:white">15</td>
             <td style="background-color: red;color:white">
               <button id="btn" type="button" class="btn-outline-light" value="Chocolate Fondue">
                 ADD
@@ -198,7 +198,7 @@
           </tr>
           <tr>
             <td style="background-color: red;color:white">Nusstorte</td>
-            <td  style="background-color: red;color:white">17</td>
+            <td  id="Nusstorte" style="background-color: red;color:white">17</td>
             <td style="background-color: red;color:white">
               <button id="btn" type="button" class="btn-outline-light" value="Nusstorte">
                 ADD
@@ -207,7 +207,7 @@
           </tr>
           <tr>
             <td style="background-color: red;color:white">Chocolate Mousse</td>
-            <td style="background-color: red;color:white">18</td></div>
+            <td id="Chocolate Mousse" style="background-color: red;color:white">18</td></div>
             <td style="background-color: red;color:white">
               <button id="btn" type="button" class="btn-outline-light" value="Chocolate Mousse">
                 ADD
@@ -220,7 +220,7 @@
 
           <tr>
             <td style="background-color: red;color:white">Kräutertee</td>
-            <td style="background-color: red;color:white">8</td>
+            <td id="Kräutertee" style="background-color: red;color:white">8</td>
             <td style="background-color: red;color:white">
               <button  id="btn" type="button" class="btn-outline-light" value="Kräutertee">
                 ADD
@@ -234,25 +234,43 @@
       <p id="bestellunzeitpunkt" class="text-white"></p>
       <p id="ankunftzeitpunkt" class="text-white"></p>
 
-      <script>
+      <p style="font-size: 20px;font-weight: bold;">Bitte unter drücken um Bestellung zu senden:</p>
+      <a href="./confirmation.html" style="border-color:blue;font-size: 25px;">Senden</a>
       
-        let bucket = [];
+
+    <script>
+      localStorage.clear();
+     
+        const bucket = [];
         const buttons = Array.from(document.querySelectorAll("button"));
         const date=new Date();
         let time=date.getTime();
-
+        const mapforfood={};
+        
         buttons.forEach(function versuch(item) {
           item.addEventListener("click", function andere (event) {
             event.target.style.backgroundColor = "green";   
-      
-            bucket.push(event.target.value)
+            let menueID = event.target.value;
+            let price = Number(document.getElementById(menueID).innerHTML);
+            
+            bucket.push(menueID);
+          
+            console.log(menueID);
+            console.log();
+
+            localStorage.setItem(menueID,price);
+         
             document.getElementById("bestellungtext").innerHTML= "Sie haben folgendes bestellt: ";
             document.getElementById("bestellunzeitpunkt").innerHTML= "Ihre Bestellung wird spätestens um: ";
             document.getElementById("ankunftzeitpunkt").innerHTML= date;
-              document.getElementById("bestellung").innerHTML= bucket.join(', ');
-          });   
-        });
+            document.getElementById("bestellung").innerHTML= bucket.join(', ');
+        
+          }); 
 
+        });
+        
+    
+        
           
 
           
